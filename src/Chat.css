@@ -1,0 +1,66 @@
+:root{
+    --l-blue:hsl(200,50%,50%);
+    --tl-dark-theme:rgb(29,38,51);
+}
+.chat{
+    /* height:100vh; */
+    position:relative;
+    min-height: 100%;
+    background:var(--tl-dark-theme);
+    /* position:absolute; */
+    top:0;
+    left:0;
+    z-index:0;
+}
+.new{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--l-blue);
+    position:sticky;
+    bottom:10px;
+    top:calc(100% - 60px);
+    left:98%;
+    right:10vw;
+}
+.pencil{
+    width:5px;
+    height:35px;
+    background:linear-gradient(to bottom,white 20%,var(--l-blue) 20%,var(--l-blue) 30%,white 30%);
+   position:absolute;
+   left:50%;
+   top:50%;
+   transform:translate(-50%,-50%) rotate(30deg);
+border-radius:2px;
+   clip-path:polygon(0 0,0 80%,50% 100%,100% 80%,100% 0);
+    }
+    .pencilAnime{
+      animation:rotate 2s;
+      }
+      
+ .newBox{
+     content:"";
+     position:absolute;
+     top:-420%;
+     left:-300%;
+     width:0;
+     height:0;
+     color:white;
+     background:var(--tl-dark-theme);
+     border-radius:10px;
+     box-shadow: 3px 3px 6px rgb(0,0,0);
+     animation:enlarge 1s forwards;
+ }
+   @keyframes rotate{
+       to{
+         transform:translate(-50%,-50%) rotate(calc(720deg + 30deg));
+         }
+         }
+         @keyframes enlarge {
+            
+             to{
+             width:150px;
+             height:150px;
+            
+             }
+         }
