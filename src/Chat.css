@@ -1,6 +1,6 @@
 :root{
     --l-blue:hsl(200,50%,50%);
-    --tl-dark-theme:rgb(29,38,51);
+    --tl-dark-theme:hsl(215,27.5%,15.7%);
 }
 .chat{
     /* height:100vh; */
@@ -39,17 +39,35 @@ border-radius:2px;
       }
       
  .newBox{
-     content:"";
+    
      position:absolute;
      top:-420%;
      left:-300%;
      width:0;
      height:0;
+     display:none;
      color:white;
      background:var(--tl-dark-theme);
      border-radius:10px;
-     box-shadow: 3px 3px 6px rgb(0,0,0);
-     animation:enlarge 1s forwards;
+     box-shadow: 2px 2px 6px rgb(0,0,0), -1px -1px 6px rgba(200,200,200,0.6);
+     
+ }
+ .newBoxAnime{
+    animation:enlarge 1s forwards;
+    display:flex;
+    align-content:flex-start;
+    flex-flow:row wrap;
+ }
+ .createNew{
+     border:none;
+     color:white;
+     background:transparent;
+     width:100%;
+     height:calc((150 / 4) * 1px);
+     border-radius:10px;
+ }
+ .createNew:hover{
+     background:hsl(215,27.5%,10.7%);
  }
    @keyframes rotate{
        to{
@@ -59,6 +77,7 @@ border-radius:2px;
          @keyframes enlarge {
             
              to{
+             
              width:150px;
              height:150px;
             
