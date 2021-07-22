@@ -4,7 +4,9 @@ import NewCreator from './NewCreator.jsx';
 class Chat extends React.Component{
     constructor(props){
         super(props);
-        this.state={newBoxClass:"newBox"};
+        this.state={newBoxClass:"newBox",
+         sph:""
+    };
         this.a=0;
     }
     
@@ -20,19 +22,24 @@ else{
     this.a--;
 }
 }
-show=()=>{
+show=(event)=>{
 document.getElementsByClassName("newCreator")[0].style.display="flex";
+this.setState({sph:event.target.id})
+
 }
     render(){
         return(
             <div className="chat">
-                <NewCreator firstPH="name" secondPH="phone no."></NewCreator>
+                <div className="contacts">
+                    
+                </div>
+                <NewCreator firstPH="name" secondPH={this.state.sph}></NewCreator>
             <div className="new" onClick={this.rotate}>
                 <div className={this.state.newBoxClass}>
-                    <button className="createNew" onClick={this.show}>New Contact</button>
-                    <button className="createNew" onClick={this.show}>New Channel</button>
-                    <button className="createNew" onClick={this.show}>New Group</button>
-                    <button className="createNew" onClick={this.show}>New chat</button>
+                    <button className="createNew" onClick={this.show} id="phone no.">New Contact</button>
+                    <button className="createNew" onClick={this.show} id="description">New Channel</button>
+                    <button className="createNew" onClick={this.show} id="description">New Group</button>
+                    {/* <button className="createNew" onClick={this.show}>New chat</button> */}
                 </div>
                 <div className="pencil"></div>
             </div>
