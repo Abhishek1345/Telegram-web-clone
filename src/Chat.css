@@ -71,7 +71,7 @@ border-radius:2px;
      animation:show 1s forwards 0.5s;
      border-radius:10px;
  }
- .createNew:hover{
+ .createNew:hover,.person:hover{
      background:hsl(215,27.5%,10.7%);
  }
    @keyframes rotate{

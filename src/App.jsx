@@ -5,7 +5,7 @@ class App extends React.Component{
     render(){
 return(
     <section>
-       <Nav></Nav>
+       <Nav header="Telegram" leftDivClass="ham" rightDivClass="search"></Nav>
        <Chat></Chat>
        </section>
     );

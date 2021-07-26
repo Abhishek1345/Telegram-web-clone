@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './NewCreator.css';
+import ChatWindow from './ChatWindow'
 class NewCreator extends React.Component{
     constructor(props){
         super(props);
         this.elems=[];
+    }
+    loadChat=(name,abb)=>{
+        ReactDOM.render(<ChatWindow header={name} dp={abb}></ChatWindow>,document.getElementById("root"))
     }
     close=()=>{
         document.getElementsByClassName("newCreator")[0].style.display="none";
@@ -15,10 +19,11 @@ class NewCreator extends React.Component{
     create=()=>{
         
         let name=document.getElementById("name").value;
+        let abb=(name.toUpperCase().charAt(0)) + ((name.indexOf(" ")!==-1)? name.toUpperCase().charAt(name.indexOf(" ")+1):"");
         this.elems.push(
-            <div className="person">
+            <div className="person" onClick={()=> this.loadChat(name,abb)}>
                 <div className="dp">
-                    {(name.toUpperCase().charAt(0))}{(name.indexOf(" ")!==-1)? name.toUpperCase().charAt(name.indexOf(" ")+1):""}
+               {abb}
                 </div>
                 {name}</div>
             

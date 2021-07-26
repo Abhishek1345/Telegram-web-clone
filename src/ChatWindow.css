@@ -1,0 +1,79 @@
+.back{
+    border-top:2px solid white;
+    border-left:2px solid white;
+    width:10px;
+    height:10px;
+    margin:0 10px 0 10px;
+    /* background:linear-gradient(transparent 30%,white 30,white 33%,transparent 33%); */
+    transform:rotate(-45deg);
+}
+.back::after{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:2px;
+    background: white;
+    transform: rotate(45deg);
+    transform-origin: 0 50%;
+    top:-1px;
+}
+.msgSender{
+    position:sticky;
+    bottom:0;
+    top:90%;
+    display:flex;
+    height:50px;
+    width:100%;
+    justify-content: center;
+    align-items:center;
+    background:var(--tl-dark-theme);
+}
+.msgSender > input{
+    height:30px;
+    width:50%;
+    border-radius: 5px;
+}
+.send{
+    width:45px;
+    height:45px;
+    background:var(--l-blue);
+    border-radius:50%;
+    margin-left:35px;
+    position:relative;
+}
+.send::before{
+  content: "";
+  position:absolute;
+  border:10px solid transparent;
+  border-left:16px solid white;
+  left:50%;
+  top: 50%;
+  transform:translate(calc(-50% + 7.5px),-50%)
+}
+.send::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:2px;
+    top:50%;
+    transform: translate(0,-50%);
+    background:inherit;
+}
+.msgArea{
+    display:flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+.msgBox{
+    width:fit-content;
+    height:auto;
+    background:var(--l-blue);
+    color:white;
+    align-self:flex-end;
+    margin:30px;
+    padding:15px 30px;
+    border-radius: 14px;
+}
+.msgArea>section{
+    width:100%;
+}

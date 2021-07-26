@@ -10,7 +10,7 @@
     color:white;
     z-index:1;
 }
-.bar{
+.ham>.bar{
     width:20px;
     height:2px;
     border-radius:3px;
