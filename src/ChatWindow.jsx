@@ -1,31 +1,40 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Nav from './Nav';
 import './ChatWindow.css';
 class ChatWindow extends React.Component{
     constructor(props){
         super(props);
         this.msgs=[];
+        this.state = {
+            msg : []
+        }
     }
     sendMessage=()=>{
         this.msg=document.getElementById("msg").value;
         document.getElementById("msg").value="";
-this.msgs.push(
-    <div className="msgBox">{this.msg}</div>
-)
-ReactDOM.render(
-    <section>
-        {this.msgs}
-    </section>,
-    document.getElementsByClassName("msgArea")[0]
-);
+        this.setState({msg: [...this.state.msg, this.msg]})
+    }
+    componentDidUpdate() {
+        console.log('component updated')
+        const msgArea = document.getElementById("msgArea")
+        if (!msgArea) {
+            return
+        }
+        const bounds = msgArea.getBoundingClientRect()
+        console.log(bounds);
+        window.scrollTo(0,(bounds.height)-(window.innerHeight+bounds.top)+50)
     }
     render(){
         return(
-            <section>
+            <section id="msgAreaSection">
             <Nav header={this.props.header} leftDivClass="back" rightDivClass="options" abb={this.props.dp} 
             dpClass="dp"></Nav>
-            <div className="chat msgArea"></div>
+            <div className="chat msgArea" id="msgArea">
+                {this.state.msg.map((msg, i)=> {
+                   return (<div key={i} className='msgBox'>{msg}</div>)
+                })}
+            </div>
             <div className="msgSender">
                 <input type="text" id="msg"/>
             <div className="send" onClick={this.sendMessage}></div>

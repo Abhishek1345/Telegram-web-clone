@@ -73,7 +73,15 @@
     margin:30px;
     padding:15px 30px;
     border-radius: 14px;
+    font-family:sans-serif;
 }
 .msgArea>section{
     width:100%;
+    min-height:80vh;
+    display:grid;
+    justify-items:end;
+    align-items:end;
+}
+.msgAreaSection{
+    overflow: scroll;
 }
