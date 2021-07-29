@@ -53,7 +53,7 @@
 .send::after{
     content:"";
     position:absolute;
-    width:100%;
+    width:60%;
     height:2px;
     top:50%;
     transform: translate(0,-50%);
