@@ -12,8 +12,11 @@ class ChatWindow extends React.Component{
     }
     sendMessage=()=>{
         this.msg=document.getElementById("msg").value;
+        if(this.msg.trim()!==""){
         document.getElementById("msg").value="";
         this.setState({msg: [...this.state.msg, this.msg]})
+        }
+        document.getElementById("msg").focus();
     }
     componentDidUpdate() {
         console.log('component updated')
