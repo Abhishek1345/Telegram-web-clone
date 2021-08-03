@@ -23,7 +23,8 @@ class ChatWindow extends React.Component{
         }
         const bounds = msgArea.getBoundingClientRect()
         console.log(bounds);
-        window.scrollTo(0,(bounds.height)-(window.innerHeight+bounds.top)+50)
+        // window.scrollTo(0,(bounds.height)-(window.innerHeight+bounds.top)+50)
+        window.scrollTo(0,window.innerHeight);
     }
     render(){
         return(
@@ -31,6 +32,7 @@ class ChatWindow extends React.Component{
             <Nav header={this.props.header} leftDivClass="back" rightDivClass="options" abb={this.props.dp} 
             dpClass="dp"></Nav>
             <div className="chat msgArea" id="msgArea">
+           
                 {this.state.msg.map((msg, i)=> {
                    return (<div key={i} className='msgBox'>{msg}</div>)
                 })}

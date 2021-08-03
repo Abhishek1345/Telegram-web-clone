@@ -28,7 +28,12 @@ class NewCreator extends React.Component{
                 {name}</div>
             
         );
-        ReactDOM.render(<section className="wrapper">{this.elems}</section>,document.getElementsByClassName("contacts")[0])
+        ReactDOM.render(
+        <section className="wrapper">
+           
+            {this.elems}
+            </section>,
+        document.getElementsByClassName("contacts")[0])
         this.close();
     }
     render(){
